@@ -3,6 +3,7 @@ import Header from "./components/Header";
 import { Container } from "react-bootstrap";
 import Home from "./pages/Home";
 import { Routes, Route } from "react-router-dom";
+import Products from "./pages/Products";
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
           <h1>Welcome to Flipit!</h1>
           <Routes>
             <Route path="/" exact element={<Home />}></Route>
+            <Route path="/product/:id" element={<Products />}></Route>
           </Routes>
         </Container>
       </main>
