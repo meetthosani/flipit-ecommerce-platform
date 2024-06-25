@@ -16,5 +16,8 @@
     "concurrently": "^8.2.2",
     "express": "^4.19.2",
     "nodemon": "^3.1.4"
+  },
+  "devDependencies": {
+    "dotenv": "^16.4.5"
   }
 }

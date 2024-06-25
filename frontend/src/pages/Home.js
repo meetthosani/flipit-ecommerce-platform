@@ -1,8 +1,18 @@
 import { Row, Col } from "react-bootstrap";
-import products from "../products";
+import { useEffect, useState } from "react";
 import Product from "../components/Product";
 
 const Home = () => {
+  const [products, setProducts] = useState([]);
+  useEffect(() => {
+    const fetchProducts = async () => {
+      const response = await fetch("/api/products");
+      const data = await response.json();
+      setProducts(data);
+    };
+    fetchProducts();
+  }, []);
+
   return (
     <>
       <Row>

@@ -1,12 +1,22 @@
 import { useParams } from "react-router-dom";
-import products from "../products";
+import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { Row, Col, Image, ListGroup, Card, Button } from "react-bootstrap";
 import Rating from "../components/Rating";
 
 const Products = () => {
+  const [product, setProduct] = useState([]);
   const { id: productID } = useParams();
-  const product = products.find((p) => p._id == productID);
+
+  useEffect(() => {
+    const fetchProduct = async () => {
+      const response = await fetch(`/api/products/${productID}`);
+      const data = await response.json();
+      setProduct(data);
+    };
+    fetchProduct();
+  }, [productID]);
+
   return (
     <>
       <Link className="btn btn-light my-3" to="/">
